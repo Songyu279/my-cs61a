@@ -1,8 +1,7 @@
 
 # My-CS61A
 
-## my-cs61a
+## cs61a learning notes
 
-cs61a learning notes
-
+我的计算机启蒙课：https://cs61a.org/
 
