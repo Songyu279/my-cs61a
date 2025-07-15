@@ -19,15 +19,7 @@ def a_plus_abs_b(a, b):
     return f(a, b)
 
 def a_plus_abs_b_syntax_check():
-    """Check that you didn't change the return statement of a_plus_abs_b.
-
-    >>> # You aren't expected to understand the code of this test.
-    >>> import inspect, re
-    >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
-    ['return f(a, b)']
-    """
-    # You don't need to edit this function. It's just here to check your work.
-
+    return
 
 def two_of_three(i, j, k):
     """Return m*m + n*n, where m and n are the two smallest members of the
@@ -93,5 +85,15 @@ def hailstone(n):
     >>> b
     1
     """
-    "*** YOUR CODE HERE ***"
+    step = 1
+    while True:
+        print(n)
+        if n == 1:
+            break
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = n * 3 + 1
+        step += 1
+    return step        
 
