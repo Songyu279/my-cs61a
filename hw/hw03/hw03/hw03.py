@@ -163,7 +163,16 @@ def count_dollars_upward(total):
     >>> check(HW_SOURCE_FILE, 'count_dollars_upward', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    def count_from_bill(n, bill):
+        if n < 0:
+            return 0
+        elif n == 0:
+            return 1
+        elif bill == None:
+            return 0
+        else:
+            return count_from_bill(n - bill, bill) + count_from_bill(n, next_larger_dollar(bill))
+    return count_from_bill(total, 1)
 
 
 def print_move(origin, destination):
@@ -198,7 +207,14 @@ def move_stack(n, start, end):
     Move the top disk from rod 1 to rod 3
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
-    "*** YOUR CODE HERE ***"
+    def helper(n, source, spare, target):
+        if n == 1:
+            print_move(source, target)
+        else:
+            helper(n - 1, source, target, spare)
+            print_move(source, target)
+            helper(n - 1, spare, source, target)
+    return helper(n, start, start + 1, end)
 
 
 from operator import sub, mul
@@ -214,6 +230,6 @@ def make_anonymous_factorial():
     ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])
     True
     """
-    return 
+    return (lambda f: f(f))(lambda f: lambda x: 1 if x == 0 else x * f(f)(x - 1))
 
 
